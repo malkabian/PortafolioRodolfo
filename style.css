@@ -168,6 +168,7 @@ img {
   height: calc(100vh - 3rem);
   row-gap: 1rem;
 }
+
 .home-data {
   align-self: center;
 }
@@ -197,7 +198,6 @@ img {
 .home-img {
   position: absolute;
   right: 0;
-  top: 20%;
   bottom: 0;
   width: 295px;
 }
@@ -207,6 +207,7 @@ img {
   height: 295px;
   border-radius: 50%;
 }
+/* Ajustes para dispositivos con un ancho máximo de 768px */
 
 .button {
   display: inline-block;
