@@ -195,20 +195,6 @@ img {
   color: var(--first-color);
 }
 
-.home-img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 295px;
-}
-
-.home-img img {
-  width: 295px;
-  height: 295px;
-  border-radius: 50%;
-}
-/* Ajustes para dispositivos con un ancho máximo de 768px */
-
 .button {
   display: inline-block;
   background-color: var(--first-color);
@@ -229,14 +215,8 @@ img {
   text-align: center;
 }
 .about-subtitle {
+  text-align: center;
   margin-bottom: var(--mb2);
-}
-.about-img {
-  justify-self: center;
-}
-.about-img img {
-  width: 200px;
-  border-radius: 0.5rem;
 }
 
 /*SKILLS*/
