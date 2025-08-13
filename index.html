@@ -12,43 +12,58 @@
   </head>
   <body>
     <header class="l-header">
-      <nav class="nav bd-grid">
-        <div>
-          <a href="#" class="nav-logo">Rodolfo</a>
-        </div>
+  <nav class="nav bd-grid">
 
-        <div class="nav-menu" id="nav-menu">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="#home" class="nav-link active">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#skills" class="nav-link">Skills</a>
-            </li>
-            <li class="nav-item"><a href="#work" class="nav-link">Work</a></li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
-            </li>
-          </ul>
-        </div>
+    <div>
+      <a href="#" class="nav-logo" data-lang="logo">Rodolfo</a>
+    </div>
 
-        <div class="nav-toggle" id="nav-toggle">
-          <i class="bx bx-menu"></i>
-        </div>
-      </nav>
-    </header>
+    <!-- Selector de idioma -->
+    <div class="lang">
+      <a href="#" class="lang-item" 
+          onclick="setLanguage('es'); return false;">Spa</a>
+      <a href="#" class="lang-item" 
+          onclick="setLanguage('en'); return false;">Eng</a>
+    </div>
+
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active" data-lang="menuHome">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link" data-lang="menuAbout">Sobre mí</a>
+        </li>
+        <li class="nav-item">
+          <a href="#skills" class="nav-link" data-lang="menuSkills">Habilidades</a>
+        </li>
+        <li class="nav-item">
+          <a href="#work" class="nav-link" data-lang="menuWork">Proyectos</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link" data-lang="menuContact">Contacto</a>
+        </li>
+        <li class="nav-item switch">
+          <i class="bx bx-sun"></i>
+          <i class="bx bx-moon"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-toggle" id="nav-toggle">
+      <i class="bx bx-menu"></i>
+    </div>
+  </nav>
+</header>
 
     <main class="l-main">
       <section class="home bd-grid" id="home">
         <div class="home-data">
-          <h1 class="home-title">
-            Hola, <br />Yo soy <span class="home-title-color">Rodolfo</span>
+          <h1 class="home-title" data-lang="homeTitle">
+            Hola, <br />
+            Yo soy <span class="home-title-color">Rodolfo</span>
             Diseñador Ux Ui
           </h1>
-          <a href="#contact" class="button">Contact</a>
+          <a href="#contact" class="button" data-lang="buttonContact">Contacto</a>
         </div>
 
         <div class="home-social">
@@ -66,11 +81,11 @@
       </section>
 
       <section class="about section" id="about">
-        <h2 class="section-title">About</h2>
+        <h2 class="section-title" data-lang="menuAbout">Sobre mí</h2>
 
         <div>
-          <h2 class="about-subtitle bd-grid">Yo soy Rodolfo</h2>
-          <p class="about-text bd-grid">
+          <h2 class="about-subtitle bd-grid" data-lang="aboutSubtitle">Yo soy Rodolfo</h2>
+          <p class="about-text bd-grid" data-lang="aboutText">
             Diseñador enfocado en crear experiencias cercanas a los usuarios
             ademas de interfaces intuitivas, basadas en el comportamiento del
             usuario, con el objetivo de mejorar constantemente la experiencia
@@ -80,12 +95,12 @@
       </section>
 
       <section class="skills section" id="skills">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title" data-lang="menuSkills">Habilidades</h2>
 
         <div class="skills-container bd-grid">
           <div>
-            <h2 class="skills-subtitle">Habilidades Profesionales</h2>
-            <p class="skills-text">
+            <h2 class="skills-subtitle" data-lang="skillsSubtitle">Habilidades Profesionales</h2>
+            <p class="skills-text" data-lang="skillsText">
               Apasionado por el diseño centrado en el usuario, creo experiencias
               significativas combinando creatividad e investigación UX. Mi
               conocimiento en HTML, CSS y JavaScript me permite colaborar
@@ -157,7 +172,7 @@
       </section>
 
       <section class="work section" id="work">
-        <h2 class="section-title">Work</h2>
+        <h2 class="section-title" data-lang="workTitle">Proyectos</h2>
 
         <div class="work-container bd-grid">
           <div class="work-img">
@@ -201,53 +216,74 @@
         </div>
       </section>
 
+      <section class="contact section" id="contact">
+        <h2 class="section-title" data-lang="contactTitle">Contacto</h2>
+        <div class="contact-text bd-grid" data-lang="contactText">
+            <p>
+              Si deseas contactarme, puedes hacerlo a través del siguiente formulario
+              o enviándome un correo a
+            </p>
+        </div>
+        <div class="contact-email">
+          <a
+            href="mailto:rodolfodelgadosantiag@gmail.com"
+          >rodolfodelgadosantiag@gmail.com</a>
+        </div>
+        <br>
+        <div class="contact-container bd-grid">
+            <form
+              action="https://formsubmit.co/rodolfodelgadosantiag@gmail.com"
+              method="POST"
+              class="contact-form"
+            >
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              class="contact-input"
+              required
+              />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              class="contact-input"
+              required
+            />
+            <textarea
+              name="message"
+              rows="10"
+              placeholder="Your message"
+              class="contact-input"
+              required
+            ></textarea>
+
+            <!-- Opcional: evita el captcha -->
+            <input type="hidden" name="_captcha" value="false" />
+
+            <!-- Opcional: redirección después del envío -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://malkabian.github.io/PortafolioRodolfo/"
+            />
+
+            <input type="submit" value="Send" class="contact-button button" />
+          </form>
+        </div>
+        
+      </section>
+
+      
+      <!-- Modal -->
       <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg" />
-        <div id="caption"></div>
+        <div class="modal-content-wrapper">
+          <img class="modal-content" id="modalImg" />
+          <p id="caption"></p>
+        </div>
       </div>
 
-      <section class="contact section" id="contact">
-        <form
-          action="https://formsubmit.co/rodolfodelgadosantiag@gmail.com"
-          method="POST"
-          class="contact-form"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre"
-            class="contact-input"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            class="contact-input"
-            required
-          />
-          <textarea
-            name="message"
-            rows="10"
-            placeholder="Tu Mensaje"
-            class="contact-input"
-            required
-          ></textarea>
-
-          <!-- Opcional: evita el captcha -->
-          <input type="hidden" name="_captcha" value="false" />
-
-          <!-- Opcional: redirección después del envío -->
-          <input
-            type="hidden"
-            name="_next"
-            value="https://malkabian.github.io/PortafolioRodolfo/"
-          />
-
-          <input type="submit" value="Enviar" class="contact-button button" />
-        </form>
-      </section>
     </main>
 
     <footer class="footer">
@@ -264,7 +300,7 @@
         ></a>
       </div>
 
-      <p>&#169; 2025 Copyright all rights reserved</p>
+      <p data-lang="footerCopyright">&#169; 2025 Copyright Todos los derechos reservados</p>
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
