@@ -542,7 +542,8 @@ body.dark-mode footer {
 
 /*MEDIA QUERIES*/
 
-@media screen and (min-width: 821px) {
+/* ----- TABLET Y DESKTOP ----- */
+@media screen and (min-width: 769px) {
   body {
     margin: 0;
   }
@@ -567,11 +568,11 @@ body.dark-mode footer {
     padding-top: 0;
   }
   .nav-item {
-    margin-left: var(--mb6);
+    margin-left: var(--mb4);
     margin-bottom: 0;
   }
   .nav-toggle {
-    display: none;
+    display: none; /* Ocultamos hamburguesa en tablets y desktop */
   }
   .nav-link {
     color: var(--second-color);
@@ -626,6 +627,15 @@ body.dark-mode footer {
   }
 }
 
+/* ----- TABLETS (769px a 1024px) → Ajuste de espacio en el menú ----- */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .nav-list {
+    justify-content: center;
+    gap: 1.5rem; /* Espaciado entre ítems para que no se peguen */
+  }
+}
+
+/* ----- DESKTOP GRANDE ----- */
 @media screen and (min-width: 1024px) {
   .bd-grid {
     margin-left: auto;
@@ -636,6 +646,7 @@ body.dark-mode footer {
   }
 }
 
+/* ----- MÓVILES (<768px) → Menú hamburguesa ----- */
 @media screen and (max-width: 768px) {
   .nav-menu {
     position: fixed;

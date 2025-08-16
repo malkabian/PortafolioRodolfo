@@ -1,18 +1,34 @@
-//Toggling Menu
+// ===============================
+// Toggling Menu con cierre al hacer clic fuera
+// ===============================
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId);
   const nav = document.getElementById(navId);
 
   if (toggle && nav) {
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation(); // evita cierre inmediato
       nav.classList.toggle("show");
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (
+        nav.classList.contains("show") &&
+        !nav.contains(e.target) &&
+        e.target !== toggle
+      ) {
+        nav.classList.remove("show");
+      }
     });
   }
 };
 
 showMenu("nav-toggle", "nav-menu");
 
-//Toggling Active Link
+// ===============================
+// Toggling Active Link
+// ===============================
 const navLink = document.querySelectorAll(".nav-link");
 
 function linkAction() {
@@ -25,8 +41,9 @@ function linkAction() {
 
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-// Scroll Reveal
-
+// ===============================
+// Scroll Reveal Animations
+// ===============================
 const sr = ScrollReveal({
   origin: "top",
   distance: "80px",
@@ -49,11 +66,10 @@ sr.reveal(".skills-data", { interval: 200 });
 sr.reveal(".skills-img", { delay: 400 });
 
 sr.reveal(".work-img", { interval: 200 });
-
 sr.reveal(".contact-input", { interval: 200 });
 
 // ===============================
-// 1. Diccionario de traducciones
+// Diccionario de traducciones
 // ===============================
 const translations = {
   es: {
@@ -63,16 +79,20 @@ const translations = {
     menuSkills: "Habilidades",
     menuWork: "Proyectos",
     menuContact: "Contacto",
-    homeTitle: "Hola, <br>Yo soy <span class='home-title-color'>Rodolfo</span> Diseñador Ux Ui",
+    homeTitle:
+      "Hola, <br>Yo soy <span class='home-title-color'>Rodolfo</span> Diseñador Ux Ui",
     buttonContact: "Contacto",
     aboutSubtitle: "Yo soy Rodolfo",
-    aboutText: "Diseñador enfocado en crear experiencias cercanas a los usuarios además de interfaces intuitivas, basadas en el comportamiento del usuario, con el objetivo de mejorar constantemente la experiencia digital.",
+    aboutText:
+      "Diseñador enfocado en crear experiencias cercanas a los usuarios además de interfaces intuitivas.",
     skillsSubtitle: "Habilidades Profesionales",
-    skillsText: "Apasionado por el diseño centrado en el usuario, creo experiencias significativas combinando creatividad e investigación UX. Mi conocimiento en HTML, CSS y JavaScript me permite colaborar fluidamente con equipos de desarrollo para lograr soluciones intuitivas y funcionales.",
+    skillsText:
+      "Apasionado por el diseño centrado en el usuario, creo experiencias significativas combinando creatividad e investigación UX.",
     workTitle: "Proyectos",
     contactTitle: "Contacto",
-    contactText: "Si deseas contactarme, puedes hacerlo a través del siguiente formulario o enviándome un correo a",
-    footerCopyright: "© 2025 Copyright Todos los derechos reservados",
+    contactText:
+      "Si deseas contactarme, puedes hacerlo a través del siguiente formulario o enviándome un correo a",
+    footerCopyright: "© 2025 Todos los derechos reservados",
   },
   en: {
     logo: "Rodolfo",
@@ -81,25 +101,29 @@ const translations = {
     menuSkills: "Skills",
     menuWork: "Projects",
     menuContact: "Contact",
-    homeTitle: "Hello, <br>I am <span class='home-title-color'>Rodolfo</span> Ux Ui Designer",
+    homeTitle:
+      "Hello, <br>I am <span class='home-title-color'>Rodolfo</span> Ux Ui Designer",
     buttonContact: "Contact",
     aboutSubtitle: "I am Rodolfo",
-    aboutText: "Designer focused on creating user-centered experiences and intuitive interfaces, based on user behavior, with the goal of constantly improving the digital experience.",
+    aboutText:
+      "Designer focused on creating user-centered experiences and intuitive interfaces.",
     skillsSubtitle: "Professional Skills",
-    skillsText: "Passionate about user-centered design, I create meaningful experiences by combining creativity and UX research. My knowledge in HTML, CSS, and JavaScript allows me to collaborate smoothly with development teams to achieve intuitive and functional solutions.",
+    skillsText:
+      "Passionate about user-centered design, I create meaningful experiences by combining creativity and UX research.",
     workTitle: "Projects",
     contactTitle: "Contact",
-    contactText: "If you want to contact me, you can do so through the following form or by sending me an email at",
-    footerCopyright: "© 2025 Copyright All rights reserved"
-  }
+    contactText:
+      "If you want to contact me, you can do so through the following form or by sending me an email at",
+    footerCopyright: "© 2025 All rights reserved",
+  },
 };
 
 // ===============================
-// 2. Descripciones para las modales
+// Descripciones para las modales
 // ===============================
 const descriptions = {
   es: [
-    'Proyecto web: <a href="https://malkabian.github.io/DeltaPrueba/" target="_blank" style="color:#4fc3f7;">Ver demo</a>',
+    'Proyecto web: <a class="home-title-color" href="https://malkabian.github.io/DeltaPrueba/" target="_blank">Ver demo</a>',
     "Proyecto 2: User persona",
     "Proyecto 3: Entrevistas de usuarios",
     "Proyecto 4: Prueba de usabilidad",
@@ -107,17 +131,17 @@ const descriptions = {
     "Proyecto 6: Mapa de Empatía",
   ],
   en: [
-    'Web project: <a href="https://malkabian.github.io/DeltaPrueba/" target="_blank" style="color:#4fc3f7;">View demo</a>',
+    'Web project: <a class="home-title-color" href="https://malkabian.github.io/DeltaPrueba/" target="_blank">View demo</a>',
     "Project 2: User persona",
     "Project 3: User interviews",
     "Project 4: Usability test",
     "Project 5: Web login",
     "Project 6: Empathy map",
-  ]
+  ],
 };
 
 // ===============================
-// 3. Variables del modal
+// Variables del modal
 // ===============================
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
@@ -127,17 +151,19 @@ let currentLang = localStorage.getItem("lang") || "es";
 let currentIndex = null;
 
 // ===============================
-// 4. Función para cambiar idioma
+// Función para cambiar idioma
 // ===============================
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("lang", lang);
 
-  // Traducción de textos con data-lang
-  document.querySelectorAll("[data-lang]").forEach(el => {
+  document.querySelectorAll("[data-lang]").forEach((el) => {
     const key = el.getAttribute("data-lang");
     if (translations[lang][key]) {
-      if (el.tagName.toLowerCase() === "input" || el.tagName.toLowerCase() === "textarea") {
+      if (
+        el.tagName.toLowerCase() === "input" ||
+        el.tagName.toLowerCase() === "textarea"
+      ) {
         el.placeholder = translations[lang][key];
       } else {
         el.innerHTML = translations[lang][key];
@@ -145,20 +171,19 @@ function setLanguage(lang) {
     }
   });
 
-  // Si el modal está abierto, actualizamos su descripción
   if (modal.style.display === "block" && currentIndex !== null) {
     captionText.innerHTML = descriptions[lang][currentIndex];
   }
 }
 
 // ===============================
-// 5. Eventos para abrir/cerrar modal
+// Eventos para abrir/cerrar modal
 // ===============================
 const images = document.querySelectorAll(".work-img img");
 images.forEach((img, index) => {
   img.addEventListener("click", () => {
     currentIndex = index;
-    modal.style.display = "flex"; // flex para centrar
+    modal.style.display = "flex";
     modalImg.src = img.src;
     captionText.innerHTML = descriptions[currentLang][index];
   });
@@ -177,7 +202,7 @@ window.onclick = (event) => {
 };
 
 // ===============================
-// 6. Inicializar idioma al cargar
+// Inicializar idioma al cargar
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   setLanguage(currentLang);
@@ -188,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 const swith = document.querySelector(".switch");
 
-swith.addEventListener("click", e => {
+swith.addEventListener("click", () => {
   swith.classList.toggle("dark-mode");
   document.body.classList.toggle("dark-mode");
 });
