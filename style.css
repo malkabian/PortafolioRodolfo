@@ -258,11 +258,12 @@ body.dark-mode h2,
 body.dark-mode p,
 body.dark-mode i,
 body.dark-mode span,
-body.dark-mode div {
+body.dark-mode div,
+body.dark-mode a {
   color: #ffffff;
 }
 
-body.dark-mode a {
+body.dark-mode .contact-email {
   color: var(--first-color);
 }
 

@@ -81,7 +81,7 @@ const translations = {
     menuSkills: "Skills",
     menuWork: "Projects",
     menuContact: "Contact",
-    homeTitle: "Hello, <br>I am <span class='home-title-color'>Rodolfo</span> UX/UI Designer",
+    homeTitle: "Hello, <br>I am <span class='home-title-color'>Rodolfo</span> Ux Ui Designer",
     buttonContact: "Contact",
     aboutSubtitle: "I am Rodolfo",
     aboutText: "Designer focused on creating user-centered experiences and intuitive interfaces, based on user behavior, with the goal of constantly improving the digital experience.",
