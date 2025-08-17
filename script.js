@@ -83,11 +83,9 @@ const translations = {
       "Hola, <br>Yo soy <span class='home-title-color'>Rodolfo</span> Diseñador Ux Ui",
     buttonContact: "Contacto",
     aboutSubtitle: "Yo soy Rodolfo",
-    aboutText:
-      "Diseñador enfocado en crear experiencias cercanas a los usuarios además de interfaces intuitivas.",
+    aboutText: "Diseñador enfocado en crear experiencias cercanas a los usuarios. Además de interfaces intuitivas, basadas en el comportamiento del usuario, con el objetivo de mejorar constantemente la experiencia digital.",
     skillsSubtitle: "Habilidades Profesionales",
-    skillsText:
-      "Apasionado por el diseño centrado en el usuario, creo experiencias significativas combinando creatividad e investigación UX.",
+    skillsText: "Apasionado por el diseño centrado en el usuario, creo experiencias significativas, combinando creatividad e investigación UX. Mi conocimiento en HTML, CSS y JavaScript me permite colaborar fluidamente con equipos de desarrollo para lograr soluciones intuitivas funcionales.",
     workTitle: "Proyectos",
     contactTitle: "Contacto",
     contactText:
@@ -105,11 +103,9 @@ const translations = {
       "Hello, <br>I am <span class='home-title-color'>Rodolfo</span> Ux Ui Designer",
     buttonContact: "Contact",
     aboutSubtitle: "I am Rodolfo",
-    aboutText:
-      "Designer focused on creating user-centered experiences and intuitive interfaces.",
+    aboutText: " Designer focused on creating user-friendly experiences. In addition to intuitive interfaces based on user behavior, with the goal of constantly improving the digital experience.",
     skillsSubtitle: "Professional Skills",
-    skillsText:
-      "Passionate about user-centered design, I create meaningful experiences by combining creativity and UX research.",
+    skillsText: "Passionate about user-centered design, I create meaningful experiences by combining creativity and UX research. My knowledge of HTML, CSS, and JavaScript allows me to collaborate seamlessly with development teams to achieve intuitive, functional solutions.", 
     workTitle: "Projects",
     contactTitle: "Contact",
     contactText:
